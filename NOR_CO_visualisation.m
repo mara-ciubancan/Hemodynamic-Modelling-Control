@@ -1,0 +1,44 @@
+load('nor_co_cases\vitaldb_case_1221.mat')
+
+% 1. Cleaning the NOR input signal
+% We use 'previous' (Forward Fill / Zero-Order Hold) to replace NaNs with the 
+% last valid recorded value
+
+U_NE_clean = fillmissing(U_NE, 'previous');
+
+% Fill any NaNs that might exist at the very beginning of the series, 
+% by using the 'next' valid value.
+
+U_NE_clean = fillmissing(U_NE_clean, 'next');
+
+% 2. Cleaning the CO output signal
+% We apply the same cleaning method to the output signal
+
+Y_CO_clean = fillmissing(Y_CO, 'previous');
+Y_CO_clean = fillmissing(Y_CO_clean, 'next');
+
+% 3. Final validation
+% We find the indices where both signals are non-NaN (after cleaning) and truncate the dataset.
+
+valid_indices = ~isnan(Y_CO_clean) & ~isnan(U_NE_clean);
+
+T_final = T(valid_indices);
+Y_CO_final = Y_CO_clean(valid_indices);
+U_NE_final = U_NE_clean(valid_indices);
+
+% 4. Display the results
+figure;
+subplot(2,1,1);
+plot(T_final, U_NE_final, 'b');
+title('Input: Norepinephrine Rate (U)');
+xlabel('Time (s)');
+ylabel('Infusion Rate (mL/hr)');
+grid on;
+
+subplot(2,1,2);
+plot(T_final, Y_CO_final, 'r');
+title('Output: Cardiac Output (Y)');
+xlabel('Time (s)');
+ylabel('CO (L/min)');
+grid on;
+
