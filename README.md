@@ -10,6 +10,12 @@ This repository covers the development workflow for hemodynamic regulation throu
   * **Advanced**: Internal Model Control (IMC) and Fractional-Order (FO) controllers
 * **Simulation & Validation**: Tested the developed controllers against an existing patient anaesthesia simulator. Closed-loop validation, disturbance-rejection testing and inter-patient variability evaluation were performed using population-based data.
 
+## Technologies Used
+
+* **Python (Visual Studio Code):** Used for data extraction, querying the VitalDB clinical database and initial data formatting.
+* **MATLAB & Simulink:** Used for system identification, mathematical modelling, controller design (PI, PID, GT, IMC, FO) and closed-loop simulations.
+* **Anesthesia Simulator:** Integrated for patient-specific simulation, disturbance rejection and inter-patient variability validation.
+
 ## Simulation Demo
 A demo of the closed-loop simulations showing the validation, performance and disturbance-rejection capabilities of the developed controllers in regulating Mean Arterial Pressure (MAP) to the target setpoint.
 [![Watch the simulation demo](https://img.youtube.com/vi/G8syMJqV0VY/0.jpg)](https://youtu.be/G8syMJqV0VY)
