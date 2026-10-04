@@ -11,5 +11,5 @@ This repository covers the development workflow for hemodynamic regulation throu
 * **Simulation & Validation**: Tested the developed controllers against an existing patient anaesthesia simulator. Closed-loop validation, disturbance-rejection testing and inter-patient variability evaluation were performed using population-based data.
 
 ## Simulation Demo
-A preview of the closed-loop simulations showing the validation, performance and disturbance-rejection capabilities of the developed controllers in regulating Mean Arterial Pressure (MAP) to the target setpoint.
+A demo of the closed-loop simulations showing the validation, performance and disturbance-rejection capabilities of the developed controllers in regulating Mean Arterial Pressure (MAP) to the target setpoint.
 [![Watch the simulation demo](https://img.youtube.com/vi/G8syMJqV0VY/0.jpg)](https://youtu.be/G8syMJqV0VY)
